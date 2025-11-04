@@ -2,9 +2,94 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { projectsAPI } from '@/lib/api';
 import ProjectCard from '@/components/ProjectCard';
 import { IProject } from '../../../shared/types';
+
+// Données de démonstration
+const demoProjects: IProject[] = [
+  {
+    _id: '1',
+    title: 'Site Dr. Sarah Cohen - Thérapeute',
+    slug: 'site-dr-sarah-cohen-therapeute',
+    client: 'Dr. Sarah Cohen',
+    description: 'Site vitrine moderne pour cabinet de thérapie francophone à Tel Aviv. Prise de rendez-vous en ligne intégrée.',
+    category: 'Santé',
+    technologies: ['Next.js', 'Tailwind CSS', 'Calendly'],
+    imageUrl: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop&crop=center',
+    link: 'https://dr-sarah-cohen.co.il',
+    featured: true,
+    order: 1,
+    isActive: true
+  },
+  {
+    _id: '2',
+    title: 'Restaurant Le Parisien - Menu QR',
+    slug: 'restaurant-le-parisien-menu-qr',
+    client: 'Restaurant Le Parisien',
+    description: 'Site web avec menu digital accessible par QR code. Multi-langue français/hébreu, photos haute qualité.',
+    category: 'Restaurant',
+    technologies: ['React', 'Node.js', 'QR Code'],
+    imageUrl: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop&crop=center',
+    link: 'https://restaurant-parisien.co.il',
+    featured: true,
+    order: 2,
+    isActive: true
+  },
+  {
+    _id: '3',
+    title: 'Coach Fitness David - Tunnel de conversion',
+    slug: 'coach-fitness-david-tunnel-conversion',
+    client: 'David Fitcoach',
+    description: 'Landing page avec tunnel de conversion optimisé. Système de réservation et paiement en ligne intégré.',
+    category: 'Sport & Fitness',
+    technologies: ['WordPress', 'Elementor', 'Stripe'],
+    imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&crop=center',
+    link: 'https://david-fitcoach.co.il',
+    featured: true,
+    order: 3,
+    isActive: true
+  },
+  {
+    _id: '4',
+    title: 'École Française de Tel Aviv',
+    slug: 'ecole-francaise-tel-aviv',
+    client: 'École Française',
+    description: 'Site institutionnel avec espace parents et système d\'inscription',
+    category: 'Éducation',
+    technologies: ['React', 'Node.js', 'PostgreSQL'],
+    imageUrl: '/images/project-school.svg',
+    featured: true,
+    order: 4,
+    isActive: true
+  },
+  {
+    _id: '5',
+    title: 'Agence Immobilière TLV',
+    slug: 'agence-immobiliere-tlv',
+    client: 'Immo TLV',
+    description: 'Plateforme immobilière avec recherche avancée et visite virtuelle',
+    category: 'Immobilier',
+    technologies: ['Vue.js', 'Laravel', 'MySQL'],
+    imageUrl: '/images/project-realestate.svg',
+    featured: false,
+    order: 5,
+    isActive: true
+  },
+  {
+    _id: '6',
+    title: 'Startup Tech Jerusalem',
+    slug: 'startup-tech-jerusalem',
+    client: 'TechStart JLM',
+    description: 'Landing page moderne pour startup tech avec animations avancées',
+    category: 'Tech',
+    technologies: ['Gatsby', 'GraphQL', 'Framer Motion'],
+    imageUrl: '/images/project-startup.svg',
+    link: 'https://techstart-jlm.com',
+    featured: false,
+    order: 6,
+    isActive: true
+  }
+];
 
 export default function ProjectsPage() {
   const [projects, setProjects] = useState<IProject[]>([]);
@@ -12,18 +97,11 @@ export default function ProjectsPage() {
   const [filter, setFilter] = useState('all');
 
   useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const response = await projectsAPI.getAll();
-        setProjects(response.data.data);
-      } catch (error) {
-        console.error('Error fetching projects:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProjects();
+    // Simulation du chargement
+    setTimeout(() => {
+      setProjects(demoProjects);
+      setLoading(false);
+    }, 500);
   }, []);
 
   const categories = ['all', ...new Set(projects.map(p => p.category))];

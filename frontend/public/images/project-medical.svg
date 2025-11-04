@@ -1,0 +1,36 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="medicalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4dabf7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#74c0fc;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="#f8f9fa"/>
+  
+  <!-- Medical building -->
+  <rect x="50" y="100" width="300" height="140" fill="#e9ecef" stroke="#dee2e6" stroke-width="2"/>
+  
+  <!-- Entrance -->
+  <rect x="170" y="180" width="60" height="60" fill="#495057"/>
+  
+  <!-- Medical cross -->
+  <rect x="185" y="50" width="30" height="80" fill="url(#medicalGrad)"/>
+  <rect x="165" y="70" width="70" height="30" fill="url(#medicalGrad)"/>
+  
+  <!-- Windows -->
+  <rect x="80" y="130" width="50" height="30" fill="#87ceeb" stroke="#495057" stroke-width="1"/>
+  <rect x="270" y="130" width="50" height="30" fill="#87ceeb" stroke="#495057" stroke-width="1"/>
+  <rect x="80" y="180" width="50" height="30" fill="#87ceeb" stroke="#495057" stroke-width="1"/>
+  <rect x="270" y="180" width="50" height="30" fill="#87ceeb" stroke="#495057" stroke-width="1"/>
+  
+  <!-- Sign -->
+  <rect x="100" y="250" width="200" height="30" fill="url(#medicalGrad)" rx="5"/>
+  <text x="200" y="270" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">CABINET MÉDICAL</text>
+  
+  <!-- Stethoscope icon -->
+  <circle cx="350" cy="50" r="8" fill="none" stroke="#495057" stroke-width="2"/>
+  <path d="M342,58 Q335,65 335,75" fill="none" stroke="#495057" stroke-width="2"/>
+  <circle cx="335" cy="78" r="3" fill="#495057"/>
+</svg>

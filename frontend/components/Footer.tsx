@@ -10,7 +10,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Web Yarden</h3>
             <p className="text-gray-400 text-sm">
-              L'agence digitale des francophones en Israël. Création de sites, marketing digital, automatisations.
+              L&apos;agence digitale des francophones en Israël. Création de sites, marketing digital, automatisations.
             </p>
           </div>
 

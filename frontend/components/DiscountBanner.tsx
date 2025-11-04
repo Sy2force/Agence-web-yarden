@@ -19,15 +19,21 @@ export default function DiscountBanner() {
 
   const fetchActiveDiscounts = async () => {
     try {
-      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/discounts/active`);
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001/api';
+      const response = await axios.get(`${apiUrl}/discounts/active`);
       setDiscounts(response.data.data);
     } catch (error) {
       console.error('Error fetching discounts:', error);
+      // En cas d'erreur, on cache silencieusement le banner
+      setDiscounts([]);
     }
   };
 
   useEffect(() => {
-    fetchActiveDiscounts();
+    const loadDiscounts = async () => {
+      await fetchActiveDiscounts();
+    };
+    loadDiscounts();
   }, []);
 
   useEffect(() => {

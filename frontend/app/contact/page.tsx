@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { useSearchParams } from 'next/navigation';
 import { contactAPI } from '@/lib/api';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
 
-export default function ContactPage() {
+function ContactForm() {
   const searchParams = useSearchParams();
   const [formData, setFormData] = useState({
     name: '',
@@ -279,5 +279,15 @@ export default function ContactPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ContactPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-gray-50 py-12 flex items-center justify-center">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+    </div>}>
+      <ContactForm />
+    </Suspense>
   );
 }
